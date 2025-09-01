@@ -43,13 +43,33 @@ nav .nav-links a:hover {
   color: #00bcd4;
 }
 
-/* Hero */
 .hero {
-  background: linear-gradient(to right, #00bcd4, #2196f3);
+  /* En lugar del degradado que tenías, usás la imagen */
+  background: url("img/fondo-atencion.png") no-repeat center center;
+  background-size: cover; /* Para que se ajuste al ancho */
   color: #fff;
   text-align: center;
   padding: 5rem 2rem;
+
+  /* Opcional: agregar un fondo semitransparente encima para que el texto se lea mejor */
+  position: relative;
 }
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5); /* oscurece la imagen */
+}
+
+.hero-text {
+  position: relative; /* hace que el texto quede encima del ::before */
+  z-index: 1;
+}
+
 
 .hero h2 span {
   color: #ffeb3b;
